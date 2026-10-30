@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para Loren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,600&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#1b1030;
+  --plum:#2d1748;
+  --rose:#f4a6b8;
+  --blush:#ffe3ea;
+  --gold:#f2cf8e;
+  --text:#f6ecf5;
+  --muted:#c4b2d3;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:linear-gradient(180deg,var(--night) 0%,var(--plum) 55%,#3b1c52 100%);
+  color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.7;
+  min-height:100vh;overflow-x:hidden;
+}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:6rem 1.5rem;text-align:center}
+
+/* Hero */
+.hero h1{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(5rem,26vw,16rem);line-height:.9;letter-spacing:-.03em;
+  color:var(--blush);
+  text-shadow:0 0 60px rgba(244,166,184,.45);
+  animation:rise 2.2s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero p{
+  margin-top:1.75rem;max-width:30ch;color:var(--muted);
+  font-family:var(--serif);font-size:clamp(1.2rem,3.5vw,1.6rem);font-style:italic;font-weight:300;
+  animation:rise 2.2s .8s cubic-bezier(.2,.7,.2,1) both;
+}
+.down{
+  margin-top:3.5rem;color:var(--rose);text-decoration:none;font-size:.95rem;
+  border-bottom:1px solid rgba(244,166,184,.4);padding-bottom:.2rem;
+  animation:rise 2s 1.6s both;
+}
+.down:hover,.down:focus-visible{border-color:var(--rose);outline:none}
+@keyframes rise{from{opacity:0;transform:translateY(22px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+
+/* Contador */
+.count h2,.letter h2,.reasons h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,5vw,2.8rem);
+  line-height:1.2;max-width:22ch;margin-bottom:2.5rem;
+}
+.clock{display:flex;gap:clamp(.8rem,3vw,2rem);flex-wrap:wrap;justify-content:center}
+.clock div{min-width:4.6rem}
+.clock strong{
+  display:block;font-family:var(--serif);font-weight:300;
+  font-size:clamp(2.6rem,9vw,4.6rem);line-height:1;color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.clock span{color:var(--muted);font-size:.95rem}
+.count small{display:block;margin-top:2.5rem;color:var(--muted);max-width:36ch}
+
+/* Carta */
+.paper{
+  max-width:38rem;text-align:left;padding:clamp(2rem,6vw,3.5rem);
+  background:rgba(255,227,234,.06);
+  border:1px solid rgba(244,166,184,.25);border-radius:6px 28px 6px 28px;
+  backdrop-filter:blur(6px);
+}
+.paper p{font-family:var(--serif);font-weight:300;font-size:1.2rem;line-height:1.85;margin-bottom:1.3rem}
+.paper p:last-child{margin-bottom:0}
+.sign{text-align:right;color:var(--rose);font-style:italic}
+
+/* Galería */
+.gallery h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.2;max-width:22ch;margin-bottom:3rem}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2.5rem 2rem;width:min(100%,62rem)}
+.photos figure{
+  background:var(--blush);color:var(--night);padding:.8rem .8rem 1rem;border-radius:4px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(var(--tilt,0deg));
+  transition:transform .3s;
+}
+.photos figure:nth-child(1){--tilt:-2.5deg}
+.photos figure:nth-child(2){--tilt:2deg;margin-top:1.5rem}
+.photos figure:nth-child(3){--tilt:-1.5deg}
+.photos figure:nth-child(4){--tilt:3deg;margin-top:1.5rem}
+.photos figure:hover{transform:rotate(0) scale(1.03)}
+.frame{
+  position:relative;aspect-ratio:4/5;background:#e9c9d4;border-radius:2px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;
+  font-size:.9rem;color:#7a4a60;
+}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photos figcaption{font-family:var(--serif);font-style:italic;font-size:1.1rem;margin-top:.8rem}
+
+/* Razones */
+.reason-box{
+  width:min(100%,34rem);min-height:11rem;display:flex;align-items:center;justify-content:center;
+  padding:2rem;border-top:1px solid rgba(242,207,142,.35);border-bottom:1px solid rgba(242,207,142,.35);
+}
+.reason-box p{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.4rem,4.4vw,2rem);line-height:1.4;transition:opacity .45s,transform .45s;
+}
+.reason-box p.out{opacity:0;transform:translateY(10px)}
+button{
+  font:inherit;cursor:pointer;color:var(--night);background:var(--rose);border:0;
+  padding:.9rem 2rem;border-radius:999px;font-weight:500;margin-top:2.25rem;
+  transition:transform .2s,background .2s;
+}
+button:hover{background:var(--blush);transform:scale(1.04)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.reasons .tally{margin-top:1rem;color:var(--muted);font-size:.95rem}
+
+/* Final */
+.end h2{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(2rem,7vw,4rem);line-height:1.15;max-width:18ch}
+#final{
+  margin-top:2rem;max-width:30ch;color:var(--blush);font-family:var(--serif);font-size:1.35rem;
+  opacity:0;transform:translateY(12px);transition:opacity 1.2s,transform 1.2s;
+}
+#final.show{opacity:1;transform:none}
+.pop{position:fixed;pointer-events:none;z-index:5;font-size:1.6rem;animation:pop 2.4s ease-out forwards}
+@keyframes pop{
+  0%{opacity:1;transform:translate(0,0) scale(.6)}
+  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.4) rotate(var(--r))}
+}
+footer{position:relative;z-index:1;text-align:center;padding:2rem;color:var(--muted);font-size:.9rem}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+
+<main>
+  <section class="hero">
+    <h1>Loren</h1>
+    <p>Hice esta página solo para ti, porque tú eres mi lugar favorito.</p>
+    <a class="down" href="#tiempo">Desliza, hay algo para ti</a>
+  </section>
+
+  <section class="count" id="tiempo">
+    <h2>Desde que llegaste, el tiempo cambió de sentido</h2>
+    <div class="clock" role="timer" aria-label="Tiempo juntos">
+      <div><strong id="d">0</strong><span>días</span></div>
+      <div><strong id="h">0</strong><span>horas</span></div>
+      <div><strong id="m">0</strong><span>minutos</span></div>
+      <div><strong id="s">0</strong><span>segundos</span></div>
+    </div>
+    <small>Y cada uno de ellos valió la pena porque lo viví contigo.</small>
+  </section>
+
+  <section class="letter">
+    <h2>Lo que siempre quiero decirte</h2>
+    <div class="paper">
+      <p>Mi Loren, hay cosas que no me salen bien cuando te miro: se me olvidan las palabras y solo me queda sonreír. Por eso escribí esto, para decírtelo con calma.</p>
+      <p>Contigo aprendí que el amor no es solo emoción grande; también es la paz de un día cualquiera, tu risa en medio de lo cotidiano y esa forma tuya de hacer que todo se sienta posible.</p>
+      <p>Gracias por tu paciencia, por tu ternura y por quedarte incluso en mis días difíciles. Me haces querer ser mejor, y eso es lo más hermoso que alguien puede hacer por otra persona.</p>
+      <p>Te amo muchísimo. Hoy, mañana y en todos los días que vengan.</p>
+      <p class="sign">Tuyo, siempre.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Mis momentos favoritos son los tuyos y los míos</h2>
+    <!-- Pon tus fotos en una carpeta llamada "fotos" junto a este archivo
+         y cambia los nombres si las tuyas se llaman distinto. -->
+    <div class="photos">
+      <figure>
+        <div class="frame">Pon aquí tu foto<img src="img/Imagen de WhatsApp 2025-07-30 a las 14.21.34_d59372ed.jpg" alt="Loren y yo" onerror="this.remove()"></div>
+        <figcaption>Nuestro comienzo</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">Pon aquí tu foto<img src="img/Imagen de WhatsApp 2025-07-30 a las 14.21.23_5a4c92cf.jpg" alt="Loren y yo" onerror="this.remove()"></div>
+        <figcaption>Ese día que no olvido</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">Pon aquí tu foto<img src="img/WhatsApp Image 2026-10-28 at 23.18.51.jpeg" alt="Loren y yo" onerror="this.remove()"></div>
+        <figcaption>Tu sonrisa favorita</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">Pon aquí tu foto<img src="img/WhatsApp Image 2026-10-28 at 23.13.31.jpeg" alt="Loren y yo" onerror="this.remove()"></div>
+        <figcaption>Siempre contigo</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="reasons">
+    <h2>Razones por las que te amo</h2>
+    <div class="reason-box"><p id="reason" aria-live="polite">Toca el botón y te cuento una.</p></div>
+    <button id="next" type="button">Dime una razón</button>
+    <p class="tally" id="tally"></p>
+  </section>
+
+  <section class="end">
+    <h2>Una última cosa, mi amor</h2>
+    <button id="love" type="button">Toca aquí, Loren</button>
+    <p id="final">Te amo con todo mi corazón. Gracias por ser tú, y por ser mía.</p>
+  </section>
+</main>
+
+<footer>Hecho con amor, para Loren.</footer>
+
+<script>
+/* ===== PERSONALIZA AQUÍ ===== */
+// Fecha en que empezaron: new Date(año, mes-1, día, hora, minuto, segundo)
+// Septiembre es el mes 8 porque los meses empiezan en 0 (enero = 0).
+// Cambia las dos últimas cifras de "0, 0, 0" si quieres incluir la hora exacta.
+var INICIO = new Date(2022, 8, 15, 0, 0, 0);
+
+var RAZONES = [
+  "Por tu sonrisa, que me arregla hasta los peores días.",
+  "Porque contigo puedo ser exactamente quien soy.",
+  "Por la forma en que cuidas de las personas que quieres.",
+  "Porque tu risa es mi sonido favorito en el mundo.",
+  "Por cada vez que me abrazas y todo se calla.",
+  "Porque me haces sentir que en casa no es un lugar, eres tú.",
+  "Por tu fuerza, aunque a veces ni tú misma la veas.",
+  "Porque incluso en silencio, contigo todo es suficiente.",
+  "Por todo lo que ya fuimos y por todo lo que aún nos falta vivir.",
+  "Simplemente porque eres Loren, y no hay nadie como tú."
+];
+/* ============================== */
+
+// Contador
+function tick(){
+  var diff = Math.max(0, Date.now() - INICIO.getTime());
+  var s = Math.floor(diff/1000);
+  document.getElementById('d').textContent = Math.floor(s/86400).toLocaleString('es');
+  document.getElementById('h').textContent = Math.floor(s%86400/3600);
+  document.getElementById('m').textContent = Math.floor(s%3600/60);
+  document.getElementById('s').textContent = s%60;
+}
+tick(); setInterval(tick,1000);
+
+// Razones
+var idx = -1, order = RAZONES.slice().sort(function(){return Math.random()-.5});
+var rEl = document.getElementById('reason'), tally = document.getElementById('tally');
+document.getElementById('next').addEventListener('click', function(){
+  idx++;
+  if(idx >= order.length){
+    idx = 0; order.sort(function(){return Math.random()-.5});
+  }
+  rEl.classList.add('out');
+  setTimeout(function(){
+    rEl.textContent = order[idx];
+    rEl.classList.remove('out');
+  }, 400);
+  tally.textContent = "Razón " + (idx+1) + " de " + order.length + "... y aún me faltan miles.";
+});
+
+// Corazones al final
+var EMOJIS = ["❤️","💖","💕","🌹","✨","💗"];
+function burst(x,y){
+  for(var i=0;i<26;i++){
+    var e = document.createElement('span');
+    e.className = 'pop';
+    e.textContent = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+    var a = Math.random()*Math.PI*2, d = 90 + Math.random()*220;
+    e.style.left = x+'px'; e.style.top = y+'px';
+    e.style.setProperty('--x', Math.cos(a)*d+'px');
+    e.style.setProperty('--y', Math.sin(a)*d-80+'px');
+    e.style.setProperty('--r', (Math.random()*80-40)+'deg');
+    document.body.appendChild(e);
+    setTimeout(function(el){el.remove()}, 2500, e);
+  }
+}
+document.getElementById('love').addEventListener('click', function(ev){
+  var r = ev.currentTarget.getBoundingClientRect();
+  burst(r.left + r.width/2, r.top + r.height/2);
+  document.getElementById('final').classList.add('show');
+  this.textContent = "Te amo, Loren";
+});
+
+// Cielo estrellado con corazones lentos
+(function(){
+  var c = document.getElementById('sky'), ctx = c.getContext('2d'), W, H, stars = [], hearts = [];
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    var dpr = window.devicePixelRatio || 1;
+    W = c.width = innerWidth*dpr; H = c.height = innerHeight*dpr;
+    c.style.width = innerWidth+'px'; c.style.height = innerHeight+'px';
+  }
+  function init(){
+    size(); stars = []; hearts = [];
+    for(var i=0;i<140;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.3,p:Math.random()*6});
+    for(var j=0;j<14;j++) hearts.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()*10+8,v:Math.random()*.25+.1,p:Math.random()*6});
+  }
+  function heart(x,y,s){
+    ctx.beginPath();
+    ctx.moveTo(x,y+s*.3);
+    ctx.bezierCurveTo(x,y-s*.2,x-s,y-s*.2,x-s,y+s*.35);
+    ctx.bezierCurveTo(x-s,y+s*.8,x,y+s*1.1,x,y+s*1.4);
+    ctx.bezierCurveTo(x,y+s*1.1,x+s,y+s*.8,x+s,y+s*.35);
+    ctx.bezierCurveTo(x+s,y-s*.2,x,y-s*.2,x,y+s*.3);
+    ctx.fill();
+  }
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#fff';
+    stars.forEach(function(s){
+      ctx.globalAlpha = .35 + .45*Math.sin(t/900 + s.p);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.3); ctx.fill();
+    });
+    ctx.fillStyle = '#f4a6b8';
+    hearts.forEach(function(h){
+      ctx.globalAlpha = .12 + .08*Math.sin(t/1500 + h.p);
+      heart(h.x + Math.sin(t/3000 + h.p)*20, h.y, h.s);
+      if(!calm){ h.y -= h.v; if(h.y < -40) { h.y = H+40; h.x = Math.random()*W; } }
+    });
+    if(!calm) requestAnimationFrame(draw);
+  }
+  addEventListener('resize', init);
+  init(); requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
